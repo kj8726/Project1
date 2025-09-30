@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= user.username %>'s Bookings</title>
+  <link rel="stylesheet" href="/bookings.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggles = document.querySelectorAll(".booking-card-toggle");
+      toggles.forEach(toggle => {
+        toggle.addEventListener("click", () => {
+          const card = toggle.closest(".booking-card");
+          card.classList.toggle("expanded");
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Welcome, <%= user.username %> 👋</h1>
+    <div class="header-buttons">
+      <a href="/bookings/new" class="new-booking-btn">➕ New Booking</a>
+      <a href="/logout" class="logout-btn">🚪 Logout</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="bookings-container">
+    <h2>Your Bookings 📋</h2>
+
+    <% if (bookings.length === 0) { %>
+      <div class="no-bookings">
+        <p>You don't have any bookings yet. ✈️</p>
+        <img src="/images/empty-state.png" alt="No Bookings" style="max-width: 300px;" />
+      </div>
+    <% } else { %>
+      <ul class="booking-list">
+        <% bookings.forEach(booking => { %>
+          <li class="booking-card">
+            <div class="booking-card-header">
+              <div>
+                <strong>📍 <%= booking.destination %></strong>
+                <p class="booking-date">📅 <%= booking.date %></p>
+              </div>
+              <button class="booking-card-toggle">▼</button>
+            </div>
+
+            <div class="booking-details">
+              <p><strong>👥 Travelers:</strong> <%= booking.travelers %></p>
+              <% if (booking.notes && booking.notes.trim() !== "") { %>
+                <p><strong>📝 Notes:</strong> <%= booking.notes %></p>
+              <% } %>
+
+              <div class="booking-actions">
+                <a href="/bookings/<%= booking._id %>/edit" class="btn-edit">✏️ Edit</a>
+                <form action="/bookings/<%= booking._id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <button type="submit" class="btn-delete">🗑️ Delete</button>
+                </form>
+              </div>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Travel Explorer. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

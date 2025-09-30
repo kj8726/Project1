@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations | Travel Explorer</title>
+  <link rel="stylesheet" href="/destination.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Travel Explorer</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/destination" class="active">Destinations</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Destination Cards -->
+  <section class="destinations">
+    <h2>Available Destinations</h2>
+    <div class="cards">
+      <% destinations.forEach(dest => { %>
+        <a href="/destination/<%= dest._id %>" class="card-link">
+          <div class="card">
+            <img src="<%= dest.image %>" alt="<%= dest.name %>">
+            <h3><%= dest.name %></h3>
+            <p><%= dest.description %></p>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Travel Explorer. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

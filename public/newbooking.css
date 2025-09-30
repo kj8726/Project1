@@ -1,0 +1,146 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-image: url("/images/travel-bg.jpg"); /* Optional background image */
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(2px);
+}
+
+/* Header */
+.header {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+}
+
+.back-btn {
+  background-color: #ff4b5c;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #e04350;
+}
+
+/* Main Section */
+.booking-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.booking-form-container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 35px 45px;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.booking-form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+/* Form */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  color:#34c759
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #f0f0f0;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #a81e1e;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Button */
+.btn.submit-btn {
+  background-color: #34c759;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn.submit-btn:hover {
+  background-color: #28a745;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

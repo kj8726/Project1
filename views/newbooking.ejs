@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Booking</title>
+  <link rel="stylesheet" href="/newbooking.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>✈️ New Booking for <%= user.username %></h1>
+    <a href="/bookings" class="btn back-btn">← Back to Bookings</a>
+  </header>
+
+  <!-- Booking Form Section -->
+  <main class="booking-main">
+    <div class="booking-form-container animate-slide-up">
+      <h2 style="color: rgb(62, 167, 67);">Create Your Travel Booking</h2>
+      <form action="/bookings" method="POST" class="booking-form">
+
+        <div class="form-group">
+          <label for="destination" style="color: aquamarine;">🌍 Destination</label>
+          <input type="text" id="destination" name="destination" placeholder="e.g. Paris, France" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date" style="color: blueviolet;">📅 Travel Date</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="travelers" style="color: rgb(173, 78, 163);">👥 Number of Travelers</label>
+          <input type="number" id="travelers" name="travelers" min="1" max="20" value="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="notes" style="color: rgb(215, 190, 26);">📝 Special Notes (Optional)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="E.g. Prefer a sea-facing hotel..."></textarea>
+        </div>
+
+        <button type="submit" class="btn submit-btn">🚀 Book Now</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Travel Explorer. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

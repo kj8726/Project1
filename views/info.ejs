@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= destination.name %> - Details</title>
+  <link rel="stylesheet" href="/info.css"> <!-- Use new CSS -->
+</head>
+<body>
+  <div class="content"><!-- Wrapper Start -->
+
+    <header>
+      <nav class="navbar">
+        <div class="logo"><a href="/">Travel Explorer</a></div>
+      </nav>
+    </header>
+
+    <section class="destination-details">
+      <div class="container">
+        <h1><%= destination.name %></h1>
+        <img src="<%= destination.image %>" alt="<%= destination.name %>" class="detail-image">
+        <p><strong>Location:</strong> <span><%= destination.location %></span></p>
+        <p><strong>Price:</strong> <span>₹<%= destination.price %></span></p>
+        <p><strong>Description:</strong> <span><%= destination.description %></span></p>
+
+        <h3>Recommended Hotels:</h3>
+<ul>
+  <% destination.hotels.forEach((hotel, index) => { %>
+    <li>
+      <a href="<%= destination.hotelLinks && destination.hotelLinks[index] ? destination.hotelLinks[index] : '#' %>" target="_blank" rel="noopener noreferrer">
+        <%= hotel %>
+      </a>
+    </li>
+  <% }) %>
+</ul>
+
+      </div>
+    </section>
+
+  </div><!-- Wrapper End -->
+
+  <footer>
+    <p>© 2025 Travel Explorer. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
